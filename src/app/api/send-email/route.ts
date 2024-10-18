@@ -1,18 +1,38 @@
 import { NextResponse } from "next/server";
-import { sendEmail } from "../../../utils/api";
+import nodemailer from "nodemailer";
 
 export async function POST(request: Request) {
-  try {
-    const { name, email, message } = await request.json();
-    console.log("Received request:", { name, email, message });
+  const { name, email, message } = await request.json();
 
-    const result = await sendEmail(name, email, message);
-    console.log("Email sent successfully:", result);
-    return NextResponse.json(result);
+  let transporter = nodemailer.createTransport({
+    host: "smtp.gmail.com",
+    port: 587,
+    secure: false,
+    auth: {
+      user: process.env.EMAIL_USER,
+      pass: process.env.EMAIL_PASS,
+    },
+  });
+
+  try {
+    await transporter.sendMail({
+      from: `"AI Workout Planner" <${process.env.EMAIL_USER}>`,
+      to: "cron3652@gmail.com",
+      subject: "New Contact Form Submission",
+      text: `Name: ${name}\nEmail: ${email}\nMessage: ${message}`,
+      html: `<p><strong>Name:</strong> ${name}</p>
+             <p><strong>Email:</strong> ${email}</p>
+             <p><strong>Message:</strong> ${message}</p>`,
+    });
+
+    return NextResponse.json({
+      success: true,
+      message: "Email sent successfully",
+    });
   } catch (error) {
-    console.error("Detailed error in send-email route:", error);
+    // console.error("Error sending email:", error);
     return NextResponse.json(
-      { success: false, message: "Error sending email", error: error.message },
+      { success: false, message: "Error sending email" },
       { status: 500 }
     );
   }

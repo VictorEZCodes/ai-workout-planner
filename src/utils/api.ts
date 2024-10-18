@@ -32,29 +32,29 @@ export async function generateWorkoutPlan(formData) {
     }),
   };
 
-  console.log(
-    "Sending request with options:",
-    JSON.stringify(options, null, 2)
-  );
+  // console.log(
+  //  "Sending request with options:",
+  //  JSON.stringify(options, null, 2)
+  // );
 
   try {
     const response = await fetch(url + "?noqueue=1", options);
-    console.log("Response status:", response.status);
-    console.log(
-      "Response headers:",
-      JSON.stringify(Object.fromEntries(response.headers), null, 2)
-    );
+    // console.log("Response status:", response.status);
+    // console.log(
+    //  "Response headers:",
+    //  JSON.stringify(Object.fromEntries(response.headers), null, 2)
+    // );
 
     if (!response.ok) {
       throw new Error(`HTTP error! status: ${response.status}`);
     }
 
     const result = await response.json();
-    console.log("API Response:", JSON.stringify(result, null, 2));
+    // console.log("API Response:", JSON.stringify(result, null, 2));
 
     return result;
   } catch (error) {
-    console.error("Error:", error);
+    // console.error("Error:", error);
     throw error;
   }
 }
@@ -85,29 +85,29 @@ export async function getNutritionAdvice(formData) {
     }),
   };
 
-  console.log(
-    "Sending nutrition advice request with options:",
-    JSON.stringify(options, null, 2)
-  );
+  // console.log(
+  //  "Sending nutrition advice request with options:",
+  //  JSON.stringify(options, null, 2)
+  // );
 
   try {
     const response = await fetch(url + "?noqueue=1", options);
-    console.log("Response status:", response.status);
-    console.log(
-      "Response headers:",
-      JSON.stringify(Object.fromEntries(response.headers), null, 2)
-    );
+    // console.log("Response status:", response.status);
+    // console.log(
+    //  "Response headers:",
+    //  JSON.stringify(Object.fromEntries(response.headers), null, 2)
+    // );
 
     if (!response.ok) {
       throw new Error(`HTTP error! status: ${response.status}`);
     }
 
     const result = await response.json();
-    console.log("API Response:", JSON.stringify(result, null, 2));
+    // console.log("API Response:", JSON.stringify(result, null, 2));
 
     return result;
   } catch (error) {
-    console.error("Error:", error);
+    // console.error("Error:", error);
     throw error;
   }
 }
@@ -134,29 +134,29 @@ export async function getExerciseDetails(exerciseName: string) {
     }),
   };
 
-  console.log(
-    "Sending exercise details request with options:",
-    JSON.stringify(options, null, 2)
-  );
+  // console.log(
+  //  "Sending exercise details request with options:",
+  //  JSON.stringify(options, null, 2)
+  // );
 
   try {
     const response = await fetch(url + "?noqueue=1", options);
-    console.log("Response status:", response.status);
-    console.log(
-      "Response headers:",
-      JSON.stringify(Object.fromEntries(response.headers), null, 2)
-    );
+    // console.log("Response status:", response.status);
+    // console.log(
+    //   "Response headers:",
+    //   JSON.stringify(Object.fromEntries(response.headers), null, 2)
+    // );
 
     if (!response.ok) {
       throw new Error(`HTTP error! status: ${response.status}`);
     }
 
     const result = await response.json();
-    console.log("API Response:", JSON.stringify(result, null, 2));
+    // console.log("API Response:", JSON.stringify(result, null, 2));
 
     return result;
   } catch (error) {
-    console.error("Error:", error);
+    // console.error("Error:", error);
     throw error;
   }
 }
@@ -192,16 +192,16 @@ export async function getCustomWorkoutPlan(formData) {
     }),
   };
 
-  console.log(
-    "Sending custom workout plan request with options:",
-    JSON.stringify(options, null, 2)
-  );
+  // console.log(
+  //   "Sending custom workout plan request with options:",
+  //   JSON.stringify(options, null, 2)
+  // );
 
   try {
     const response = await fetch(url + "?noqueue=1", options);
     const responseText = await response.text();
-    console.log("Response status:", response.status);
-    console.log("Response text:", responseText);
+    // console.log("Response status:", response.status);
+    // console.log("Response text:", responseText);
 
     if (!response.ok) {
       throw new Error(
@@ -224,13 +224,13 @@ export async function getCustomWorkoutPlan(formData) {
       seoKeywords: result.result.seo_keywords,
     };
 
-    console.log(
-      "Formatted API Response:",
-      JSON.stringify(formattedResult, null, 2)
-    );
+    // console.log(
+    //   "Formatted API Response:",
+    //   JSON.stringify(formattedResult, null, 2)
+    // );
     return formattedResult;
   } catch (error) {
-    console.error("Error:", error);
+    // console.error("Error:", error);
     throw error;
   }
 }
@@ -257,16 +257,16 @@ export async function analyzeFoodPlate(imageUrl: string) {
     }),
   };
 
-  console.log("Sending food plate analysis request");
-  console.log("Request body:", options.body);
+  // console.log("Sending food plate analysis request");
+  // console.log("Request body:", options.body);
 
   try {
     const response = await fetch(url + "?noqueue=1", options);
-    console.log("Response status:", response.status);
-    console.log("Response headers:", response.headers);
+    // console.log("Response status:", response.status);
+    // console.log("Response headers:", response.headers);
 
     const responseText = await response.text();
-    console.log("Response text:", responseText);
+    // console.log("Response text:", responseText);
 
     if (!response.ok) {
       throw new Error(
@@ -286,54 +286,13 @@ export async function analyzeFoodPlate(imageUrl: string) {
       suggestions: result.result.suggestions,
     };
 
-    console.log(
-      "Formatted API Response:",
-      JSON.stringify(formattedResult, null, 2)
-    );
+    // console.log(
+    //   "Formatted API Response:",
+    //   JSON.stringify(formattedResult, null, 2)
+    // );
     return formattedResult;
   } catch (error) {
-    console.error("Error:", error);
-    throw error;
-  }
-}
-
-export async function sendEmail(name: string, email: string, message: string) {
-  console.log("sendEmail function called with:", { name, email, message });
-
-  if (!process.env.EMAIL_USER || !process.env.EMAIL_PASS) {
-    console.error("Email credentials missing");
-    throw new Error(
-      "Email credentials are not defined in environment variables"
-    );
-  }
-
-  // Create a transporter using SMTP
-  let transporter = nodemailer.createTransport({
-    host: "smtp.gmail.com",
-    port: 587,
-    secure: false, // Use TLS
-    auth: {
-      user: process.env.EMAIL_USER,
-      pass: process.env.EMAIL_PASS,
-    },
-  });
-
-  try {
-    // Send mail with defined transport object
-    const info = await transporter.sendMail({
-      from: `"AI Workout Planner" <${process.env.EMAIL_USER}>`,
-      to: "cron3652@gmail.com", // Your email address
-      subject: "New Contact Form Submission",
-      text: `Name: ${name}\nEmail: ${email}\nMessage: ${message}`,
-      html: `<p><strong>Name:</strong> ${name}</p>
-             <p><strong>Email:</strong> ${email}</p>
-             <p><strong>Message:</strong> ${message}</p>`,
-    });
-
-    console.log("Message sent: %s", info.messageId);
-    return { success: true, message: "Email sent successfully" };
-  } catch (error) {
-    console.error("Detailed error sending email:", error);
+    // console.error("Error:", error);
     throw error;
   }
 }

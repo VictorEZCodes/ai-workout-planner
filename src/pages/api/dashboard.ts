@@ -9,7 +9,7 @@ export default async function handler(
   req: NextApiRequest,
   res: NextApiResponse
 ) {
-  console.log("Dashboard API called");
+  // console.log("Dashboard API called");
   const { userId } = getAuth(req);
 
   if (!userId) {
@@ -18,14 +18,14 @@ export default async function handler(
 
   try {
     await dbConnect();
-    console.log("Connected to MongoDB");
+    // console.log("Connected to MongoDB");
 
     if (req.method === "GET") {
-      console.log("Fetching data for user:", userId);
+      // console.log("Fetching data for user:", userId);
 
       const user = await User.findOne({ clerkId: userId });
       if (!user) {
-        console.log("User not found");
+        // console.log("User not found");
         return res.status(404).json({ error: "User not found" });
       }
 
@@ -44,7 +44,7 @@ export default async function handler(
         { $group: { _id: null, totalCalories: { $avg: "$totalCalories" } } },
       ]);
 
-      console.log("Sending dashboard data");
+      // console.log("Sending dashboard data");
       res.status(200).json({
         totalWorkouts,
         completedGoals,
@@ -54,11 +54,11 @@ export default async function handler(
         recentNutrition: nutritionLogs,
       });
     } else {
-      console.log("Method not allowed:", req.method);
+      // console.log("Method not allowed:", req.method);
       res.status(405).json({ error: "Method not allowed" });
     }
   } catch (error) {
-    console.error("Error in dashboard API:", error);
+    // console.error("Error in dashboard API:", error);
     res
       .status(500)
       .json({ error: "Error fetching dashboard data", details: error.message });

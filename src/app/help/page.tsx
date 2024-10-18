@@ -9,16 +9,16 @@ const FAQItem = ({ question, answer, icon, delay }) => (
     initial={{ opacity: 0, y: 20 }}
     animate={{ opacity: 1, y: 0 }}
     transition={{ duration: 0.5, delay }}
-    className="bg-white rounded-lg shadow-md p-6 mb-6"
+    className="bg-white dark:bg-gray-800 rounded-lg shadow-md p-6 mb-6"
   >
     <motion.div
       whileHover={{ scale: 1.05 }}
       className="flex items-center mb-4"
     >
-      <div className="text-3xl text-indigo-600 mr-4">{icon}</div>
-      <h2 className="text-xl font-semibold text-gray-900">{question}</h2>
+      <div className="text-3xl text-indigo-600 dark:text-indigo-400 mr-4">{icon}</div>
+      <h2 className="text-xl font-semibold text-gray-900 dark:text-white">{question}</h2>
     </motion.div>
-    <p className="text-gray-600">{answer}</p>
+    <p className="text-gray-600 dark:text-gray-300">{answer}</p>
   </motion.div>
 );
 
@@ -57,14 +57,14 @@ export default function HelpPage() {
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ duration: 0.5 }}
-        className="min-h-screen bg-gradient-to-b from-blue-50 to-white pt-24 pb-12 px-4 sm:px-6 lg:px-8"
+        className="min-h-screen bg-gradient-to-b from-blue-50 to-white dark:from-gray-900 dark:to-gray-800 pt-24 pb-12 px-4 sm:px-6 lg:px-8"
       >
         <div className="max-w-3xl mx-auto">
           <motion.h1
             initial={{ y: -20 }}
             animate={{ y: 0 }}
             transition={{ duration: 0.5 }}
-            className="text-4xl font-bold text-gray-900 mb-8 text-center"
+            className="text-4xl font-bold text-gray-900 dark:text-white mb-8 text-center"
           >
             Help / FAQ
           </motion.h1>

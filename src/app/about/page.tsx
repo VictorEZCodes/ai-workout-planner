@@ -10,16 +10,16 @@ const FeatureCard = ({ icon, title, description, delay }) => (
     initial={{ opacity: 0, y: 50 }}
     animate={{ opacity: 1, y: 0 }}
     transition={{ duration: 0.5, delay }}
-    className="bg-white rounded-lg shadow-md p-6 flex flex-col items-center text-center"
+    className="bg-white dark:bg-gray-800 rounded-lg shadow-md p-6 flex flex-col items-center text-center"
   >
     <motion.div
       whileHover={{ scale: 1.1 }}
-      className="text-4xl text-indigo-600 mb-4"
+      className="text-4xl text-indigo-600 dark:text-indigo-400 mb-4"
     >
       {icon}
     </motion.div>
-    <h3 className="text-xl font-semibold mb-2">{title}</h3>
-    <p className="text-gray-600">{description}</p>
+    <h3 className="text-xl font-semibold mb-2 text-gray-900 dark:text-white">{title}</h3>
+    <p className="text-gray-600 dark:text-gray-300">{description}</p>
   </motion.div>
 );
 
@@ -36,8 +36,8 @@ const TeamMember = ({ name, role, imageSrc, delay }) => (
     >
       <Image src={imageSrc} alt={name} width={128} height={128} className="object-cover" />
     </motion.div>
-    <h3 className="text-lg font-semibold">{name}</h3>
-    <p className="text-gray-600">{role}</p>
+    <h3 className="text-lg font-semibold text-gray-900 dark:text-white">{name}</h3>
+    <p className="text-gray-600 dark:text-gray-300">{role}</p>
   </motion.div>
 );
 
@@ -48,7 +48,7 @@ export default function AboutPage() {
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ duration: 0.5 }}
-        className="min-h-screen bg-gradient-to-b from-blue-50 to-white pt-24 pb-12 px-4 sm:px-6 lg:px-8"
+        className="min-h-screen bg-gradient-to-b from-blue-50 to-white dark:from-gray-900 dark:to-gray-800 pt-24 pb-12 px-4 sm:px-6 lg:px-8"
       >
         <div className="max-w-7xl mx-auto">
           <motion.div
@@ -57,8 +57,8 @@ export default function AboutPage() {
             transition={{ duration: 0.5 }}
             className="text-center mb-16"
           >
-            <h1 className="text-4xl font-bold text-gray-900 mb-4">About AI Workout Planner</h1>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+            <h1 className="text-4xl font-bold text-gray-900 dark:text-white mb-4">About AI Workout Planner</h1>
+            <p className="text-xl text-gray-600 dark:text-gray-300 max-w-3xl mx-auto">
               AI Workout Planner is a cutting-edge application that uses artificial intelligence to create personalized workout plans and provide nutrition advice.
             </p>
           </motion.div>
@@ -90,18 +90,18 @@ export default function AboutPage() {
             transition={{ duration: 0.5, delay: 0.8 }}
             className="mb-16"
           >
-            <h2 className="text-3xl font-bold text-gray-900 mb-8 text-center">Our Mission</h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto text-center">
+            <h2 className="text-3xl font-bold text-gray-900 dark:text-white mb-8 text-center">Our Mission</h2>
+            <p className="text-xl text-gray-600 dark:text-gray-300 max-w-3xl mx-auto text-center">
               Our mission is to make personalized fitness accessible to everyone, leveraging the power of AI to help individuals achieve their health and fitness goals.
             </p>
           </motion.div>
 
-          <motion.div
+          {/* <motion.div
             initial={{ opacity: 0, y: 50 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 1 }}
-          >
-            <h2 className="text-3xl font-bold text-gray-900 mb-8 text-center">Meet the Team</h2>
+          > */}
+          {/* <h2 className="text-3xl font-bold text-gray-900 dark:text-white mb-8 text-center">Meet the Team</h2>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-12">
               <TeamMember
                 name="John Doe"
@@ -121,8 +121,8 @@ export default function AboutPage() {
                 imageSrc="/path/to/mike-johnson-image.jpg"
                 delay={1.6}
               />
-            </div>
-          </motion.div>
+            </div> */}
+          {/* </motion.div> */}
         </div>
       </motion.div>
     </Layout>

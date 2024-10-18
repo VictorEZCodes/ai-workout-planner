@@ -37,12 +37,12 @@ const NutritionAdviceForm = ({ onSubmit }) => {
   return (
     <form onSubmit={handleSubmit} className="space-y-4">
       <div>
-        <label className="block text-sm font-medium text-gray-700">Goal</label>
+        <label className="block text-sm font-medium text-gray-700 dark:text-gray-300">Goal</label>
         <select
           name="goal"
           value={formData.goal}
           onChange={handleChange}
-          className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50"
+          className="mt-1 block w-full rounded-md border-gray-300 dark:border-gray-600 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50 bg-white dark:bg-gray-700 text-gray-900 dark:text-white"
         >
           <option value="">Select a goal</option>
           <option value="Lose weight">Lose weight</option>
@@ -52,7 +52,7 @@ const NutritionAdviceForm = ({ onSubmit }) => {
       </div>
 
       <div>
-        <label className="block text-sm font-medium text-gray-700">Dietary Restrictions</label>
+        <label className="block text-sm font-medium text-gray-700 dark:text-gray-300">Dietary Restrictions</label>
         <div className="mt-2 space-y-2">
           {['Vegetarian', 'Vegan', 'Gluten-free', 'Lactose-free', 'Nut-free'].map((restriction) => (
             <div key={restriction} className="flex items-center">
@@ -63,9 +63,9 @@ const NutritionAdviceForm = ({ onSubmit }) => {
                 value={restriction}
                 checked={formData.dietaryRestrictions.includes(restriction)}
                 onChange={handleDietaryRestrictions}
-                className="h-4 w-4 text-indigo-600 focus:ring-indigo-500 border-gray-300 rounded"
+                className="h-4 w-4 text-indigo-600 focus:ring-indigo-500 border-gray-300 dark:border-gray-600 rounded"
               />
-              <label htmlFor={restriction} className="ml-2 block text-sm text-gray-900">
+              <label htmlFor={restriction} className="ml-2 block text-sm text-gray-900 dark:text-gray-300">
                 {restriction}
               </label>
             </div>
@@ -74,34 +74,34 @@ const NutritionAdviceForm = ({ onSubmit }) => {
       </div>
 
       <div>
-        <label className="block text-sm font-medium text-gray-700">Current Weight (kg)</label>
+        <label className="block text-sm font-medium text-gray-700 dark:text-gray-300">Current Weight (kg)</label>
         <input
           type="number"
           name="currentWeight"
           value={formData.currentWeight}
           onChange={handleChange}
-          className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50"
+          className="mt-1 block w-full rounded-md border-gray-300 dark:border-gray-600 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50 bg-white dark:bg-gray-700 text-gray-900 dark:text-white"
         />
       </div>
 
       <div>
-        <label className="block text-sm font-medium text-gray-700">Target Weight (kg)</label>
+        <label className="block text-sm font-medium text-gray-700 dark:text-gray-300">Target Weight (kg)</label>
         <input
           type="number"
           name="targetWeight"
           value={formData.targetWeight}
           onChange={handleChange}
-          className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50"
+          className="mt-1 block w-full rounded-md border-gray-300 dark:border-gray-600 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50 bg-white dark:bg-gray-700 text-gray-900 dark:text-white"
         />
       </div>
 
       <div>
-        <label className="block text-sm font-medium text-gray-700">Daily Activity Level</label>
+        <label className="block text-sm font-medium text-gray-700 dark:text-gray-300">Daily Activity Level</label>
         <select
           name="dailyActivityLevel"
           value={formData.dailyActivityLevel}
           onChange={handleChange}
-          className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50"
+          className="mt-1 block w-full rounded-md border-gray-300 dark:border-gray-600 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50 bg-white dark:bg-gray-700 text-gray-900 dark:text-white"
         >
           <option value="">Select activity level</option>
           <option value="Sedentary">Sedentary</option>
@@ -114,7 +114,7 @@ const NutritionAdviceForm = ({ onSubmit }) => {
 
       <button
         type="submit"
-        className="w-full flex justify-center py-2 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
+        className="w-full flex justify-center py-2 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 dark:bg-indigo-500 dark:hover:bg-indigo-600"
       >
         Get Nutrition Advice
       </button>
@@ -126,32 +126,32 @@ const NutritionAdviceDisplay = ({ advice }) => {
   const { result } = advice;
 
   return (
-    <div className="bg-white shadow overflow-hidden sm:rounded-lg">
+    <div className="bg-white dark:bg-gray-800 shadow overflow-hidden sm:rounded-lg">
       <div className="px-4 py-5 sm:px-6">
-        <h3 className="text-2xl leading-6 font-bold text-gray-900">{result.seo_title}</h3>
-        <p className="mt-1 max-w-2xl text-sm text-gray-500">{result.seo_content}</p>
+        <h3 className="text-2xl leading-6 font-bold text-gray-900 dark:text-white">{result.seo_title}</h3>
+        <p className="mt-1 max-w-2xl text-sm text-gray-500 dark:text-gray-400">{result.seo_content}</p>
       </div>
-      <div className="border-t border-gray-200">
+      <div className="border-t border-gray-200 dark:border-gray-700">
         <dl>
-          <div className="bg-gray-50 px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
-            <dt className="text-sm font-medium text-gray-500">Goal</dt>
-            <dd className="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2">{result.goal}</dd>
+          <div className="bg-gray-50 dark:bg-gray-700 px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
+            <dt className="text-sm font-medium text-gray-500 dark:text-gray-300">Goal</dt>
+            <dd className="mt-1 text-sm text-gray-900 dark:text-white sm:mt-0 sm:col-span-2">{result.goal}</dd>
           </div>
-          <div className="bg-white px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
-            <dt className="text-sm font-medium text-gray-500">Recommended Exercise</dt>
-            <dd className="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2">
+          <div className="bg-white dark:bg-gray-800 px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
+            <dt className="text-sm font-medium text-gray-500 dark:text-gray-300">Recommended Exercise</dt>
+            <dd className="mt-1 text-sm text-gray-900 dark:text-white sm:mt-0 sm:col-span-2">
               <p className="font-semibold">{result.exercise_name}</p>
               <p>{result.description}</p>
             </dd>
           </div>
-          <div className="bg-gray-50 px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
-            <dt className="text-sm font-medium text-gray-500">Daily Calorie Intake</dt>
-            <dd className="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2">{result.calories_per_day} calories</dd>
+          <div className="bg-gray-50 dark:bg-gray-700 px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
+            <dt className="text-sm font-medium text-gray-500 dark:text-gray-300">Daily Calorie Intake</dt>
+            <dd className="mt-1 text-sm text-gray-900 dark:text-white sm:mt-0 sm:col-span-2">{result.calories_per_day} calories</dd>
           </div>
-          <div className="bg-white px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
-            <dt className="text-sm font-medium text-gray-500">Macronutrients</dt>
-            <dd className="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2">
-              <ul className="border border-gray-200 rounded-md divide-y divide-gray-200">
+          <div className="bg-white dark:bg-gray-800 px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
+            <dt className="text-sm font-medium text-gray-500 dark:text-gray-300">Macronutrients</dt>
+            <dd className="mt-1 text-sm text-gray-900 dark:text-white sm:mt-0 sm:col-span-2">
+              <ul className="border border-gray-200 dark:border-gray-700 rounded-md divide-y divide-gray-200 dark:divide-gray-700">
                 {Object.entries(result.macronutrients).map(([nutrient, percentage]) => (
                   <li key={nutrient} className="pl-3 pr-4 py-3 flex items-center justify-between text-sm">
                     <div className="w-0 flex-1 flex items-center">
@@ -165,16 +165,16 @@ const NutritionAdviceDisplay = ({ advice }) => {
               </ul>
             </dd>
           </div>
-          <div className="bg-gray-50 px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
-            <dt className="text-sm font-medium text-gray-500">Meal Suggestions</dt>
-            <dd className="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2">
+          <div className="bg-gray-50 dark:bg-gray-700 px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
+            <dt className="text-sm font-medium text-gray-500 dark:text-gray-300">Meal Suggestions</dt>
+            <dd className="mt-1 text-sm text-gray-900 dark:text-white sm:mt-0 sm:col-span-2">
               {result.meal_suggestions.map((meal, index) => (
                 <div key={index} className="mb-4">
                   <h4 className="font-semibold">{meal.meal}</h4>
                   {meal.suggestions.map((suggestion, suggIndex) => (
                     <div key={suggIndex} className="ml-4">
                       <p className="font-medium">{suggestion.name} ({suggestion.calories} calories)</p>
-                      <p className="text-sm text-gray-600">Ingredients: {suggestion.ingredients.join(', ')}</p>
+                      <p className="text-sm text-gray-600 dark:text-gray-400">Ingredients: {suggestion.ingredients.join(', ')}</p>
                     </div>
                   ))}
                 </div>
@@ -214,7 +214,7 @@ export default function NutritionAdvicePage() {
       // router.push('/dashboard');
     } catch (err) {
       setError('Failed to get nutrition advice. Please try again.');
-      console.error(err);
+      // console.error(err);
     } finally {
       setIsLoading(false);
     }
@@ -222,15 +222,15 @@ export default function NutritionAdvicePage() {
 
   return (
     <Layout>
-      <div className="min-h-screen bg-gradient-to-b from-blue-50 to-white pt-24 pb-12 px-4 sm:px-6 lg:px-8">
+      <div className="min-h-screen bg-gradient-to-b from-blue-50 to-white dark:from-gray-900 dark:to-gray-800 pt-24 pb-12 px-4 sm:px-6 lg:px-8">
         <div className="max-w-3xl mx-auto">
           <div className="rounded-lg overflow-hidden">
             <div className="px-4 py-5 sm:p-6">
-              <h1 className="text-3xl font-bold text-gray-900 mb-6">Get Personalized Nutrition Advice</h1>
+              <h1 className="text-3xl font-bold text-gray-900 dark:text-white mb-6">Get Personalized Nutrition Advice</h1>
               {isLoading ? (
-                <p className="text-center text-gray-600">Loading your personalized nutrition advice...</p>
+                <p className="text-center text-gray-600 dark:text-gray-300">Loading your personalized nutrition advice...</p>
               ) : error ? (
-                <p className="text-center text-red-600">{error}</p>
+                <p className="text-center text-red-600 dark:text-red-400">{error}</p>
               ) : !nutritionAdvice ? (
                 <NutritionAdviceForm onSubmit={handleGetAdvice} />
               ) : (

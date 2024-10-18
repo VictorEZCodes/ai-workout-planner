@@ -11,6 +11,7 @@ export default clerk.authMiddleware({
     "/contact",
     "/api/send-email",
     "/help",
+    "/api/update-profile",
   ],
   ignoredRoutes: ["/api/webhook"],
   afterAuth(auth, req) {
@@ -27,6 +28,7 @@ export default clerk.authMiddleware({
         "/nutrition-advice",
         "/analyze-food",
         "/profile",
+        "/settings", // Add this line
       ].includes(requestedPath);
 
       if (!pathExists) {

@@ -18,7 +18,7 @@ export default function WorkoutPlanPage() {
       setError(null);
       setIsLoading(true);
       const plan = await generateWorkoutPlan(formData);
-      console.log('Received plan in page component:', JSON.stringify(plan, null, 2));
+      // console.log('Received plan in page component:', JSON.stringify(plan, null, 2));
       setWorkoutPlan(plan);
 
       // Record the activity
@@ -34,7 +34,7 @@ export default function WorkoutPlanPage() {
       // Optionally, redirect to dashboard
       // router.push('/dashboard');
     } catch (err) {
-      console.error('Error generating plan:', err);
+      // console.error('Error generating plan:', err);
       setError(err.message || 'An error occurred while generating the workout plan.');
     } finally {
       setIsLoading(false);
@@ -43,16 +43,20 @@ export default function WorkoutPlanPage() {
 
   return (
     <Layout>
-      <div className="min-h-screen bg-gradient-to-b from-blue-50 to-white pt-24 pb-12 px-4 sm:px-6 lg:px-8">
+      <div className="min-h-screen bg-gradient-to-b from-blue-50 to-white dark:from-gray-900 dark:to-gray-800 pt-24 pb-12 px-4 sm:px-6 lg:px-8">
         <div className="max-w-3xl mx-auto">
-          <h1 className="text-3xl font-bold text-gray-900 mb-6">Generate Your Workout Plan</h1>
-          {error && <p className="text-red-600 mb-4">{error}</p>}
+          <h1 className="text-3xl font-bold text-gray-900 dark:text-white mb-6">Generate Your Workout Plan</h1>
+          {error && <p className="text-red-600 dark:text-red-400 mb-4">{error}</p>}
           {isLoading ? (
-            <p>Generating your workout plan. This may take a few moments...</p>
+            <p className="text-center text-gray-600 dark:text-gray-300">Generating your workout plan...</p>
           ) : !workoutPlan ? (
-            <WorkoutPlanForm onSubmit={handleGeneratePlan} />
+            <div className="text-gray-900 dark:text-white">
+              <WorkoutPlanForm onSubmit={handleGeneratePlan} />
+            </div>
           ) : (
-            <WorkoutPlanDisplay plan={workoutPlan} />
+            <div className="text-gray-900 dark:text-white">
+              <WorkoutPlanDisplay plan={workoutPlan} />
+            </div>
           )}
         </div>
       </div>

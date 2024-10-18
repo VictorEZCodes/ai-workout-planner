@@ -61,7 +61,7 @@ export default function Layout({ children }: LayoutProps) {
             <div className="flex lg:flex-1">
               <Link href="/" className="-m-1.5 p-1.5">
                 <span className="sr-only">AI Workout Planner</span>
-                <img className="h-8 w-auto" src="/logo.png" alt="AI Workout Planner" />
+                {/* <img className="h-8 w-auto" src="/logo.png" alt="AI Workout Planner" /> */}
               </Link>
             </div>
             <div className="flex lg:hidden">

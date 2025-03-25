@@ -18,8 +18,8 @@ import {
 const features = [
   { name: 'Workout Plan', icon: ChartBarIcon, href: '/workout-plan', description: 'View and manage your current workout plan' },
   { name: 'Custom Workout', icon: PencilSquareIcon, href: '/custom-workout', description: 'Create a personalized workout plan' },
-  { name: 'Exercise Library', icon: ClipboardDocumentListIcon, href: '/exercise-library', description: 'Browse and learn about various exercises' },
-  { name: 'Nutrition', icon: CakeIcon, href: '/nutrition', description: 'Track your nutrition and get meal recommendations' },
+  { name: 'Exercise Library', icon: ClipboardDocumentListIcon, href: '/exercise-details', description: 'Browse and learn about various exercises' },
+  { name: 'Nutrition', icon: CakeIcon, href: '/nutrition-advice', description: 'Track your nutrition and get meal recommendations' },
   { name: 'Analyze Food', icon: CameraIcon, href: '/analyze-food', description: 'Analyze your meals with AI' },
 ];
 
